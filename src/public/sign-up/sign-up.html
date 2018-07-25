@@ -1,0 +1,65 @@
+<!-- html template for sign-up page -->
+
+<div class="container">
+	<form name="regForm" novalidate>
+			<h1>Sign up</h1>
+			<br>
+
+			First Name:<input class= "signUpInputBox" type="text" name = "firstName" placeholder="First Name" ng-model = "signUpCtrl.firstName"
+			required >
+
+			<span style="color:red" ng-if="regForm.firstName.$touched && regForm.firstName.$error.required">
+            First Name is required.
+          	</span>
+          	<br>
+
+			Last Name:<input class= "signUpInputBox" type="text" name = "lastName" placeholder="Last Name" ng-model = "signUpCtrl.lastName"
+			required >
+
+			<span style="color:red" ng-if="regForm.lastName.$touched && regForm.lastName.$error.required">
+            Last Name is required.
+          	</span>
+          	<br>
+
+			Email:<input class= "signUpInputBox" type="email" name = "email" placeholder="Your Email" ng-model = "signUpCtrl.email"
+			required >
+
+			<span style="color:red" ng-if="regForm.email.$touched && regForm.email.$invalid">
+            Email can not be empty or not a valid input.
+          	</span>
+			<br>
+
+			Phone Number:<input class= "signUpInputBox" type="text" name = "phoneNumber" placeholder="Your phone number" ng-model = "signUpCtrl.phoneNum"
+			required pattern="(\d{10})">
+
+			<span style="color:red" ng-if="regForm.phoneNumber.$touched && regForm.phoneNumber.$error.required ">
+            Phone Number is required.
+          	</span>
+
+          	<span style="color:red" ng-if="regForm.phoneNumber.$touched && regForm.phoneNumber.$invalid && !regForm.phoneNumber.$error.required">
+            Phone Number must only contain digit, and must be 10 digits long. (Sry, we only serve US customers ^_^ )
+          	</span>
+          	
+			<br>
+
+			Favourite Dish:<input class= "signUpInputBox" type="text" name = "favDish" placeholder="Your favourite dish menu number" ng-model = "signUpCtrl.favDish">
+			<span style ="color:red" ng-if = "signUpCtrl.showErrorMessageFlag">No such menu number exists!</span>
+			
+			<br>
+
+			<br>
+			<button style = "color: black;" ng-disabled ="regForm.$invalid" ng-click = "signUpCtrl.onSubmit();">Submit</button>
+		
+		<div style ="color:green" ng-if = "signUpCtrl.showProcessingMessageFlag"> Please wait for processing... </div>
+		<div style ="color:green" ng-if = "signUpCtrl.showSuccessMessageFlag"> Your information has been saved! </div>
+		<div ng-if = "signUpCtrl.showSuccessMessageFlag"><a  href="index.html">Back to Home</a> </div>
+
+
+</form>
+
+
+	
+
+
+
+</div>

@@ -1,0 +1,18 @@
+<div class = "container">
+	<h1>Registed Info</h1>
+	<br>
+	<div>Your Name: {{myInfoCtrl.personalInfo.firstName + " " + myInfoCtrl.personalInfo.lastName}}</div>
+	<br>
+	<div>Your Email: {{myInfoCtrl.personalInfo.email}}</div>
+	<br>
+	<div>Your Phone Number: {{myInfoCtrl.personalInfo.phoneNum }}</div>
+	<br>
+	<div>Your Faviourate Dish: </div>
+	<div>{{myInfoCtrl.personalInfo.favDishInfo.name}}</div>
+	<img width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.personalInfo.favDishInfo.short_name}}.jpg" alt="{{myInfoCtrl.favDishInfo.name}}">
+	<div>{{myInfoCtrl.personalInfo.favDishInfo.description}}</div>
+	
+
+
+
+</div>

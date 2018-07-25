@@ -183,3 +183,19 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+
+/* change text color to make it be able to see what the input is.  */
+.signUpInputBox {
+  color: black;
+}
+
+.ng-touched.ng-valid{
+  border: 2px green solid;
+}
+.ng-touched.ng-invalid{
+  border: 2px red solid;
+}
+
+.inLineErrorMessage {
+color: red;
+}
