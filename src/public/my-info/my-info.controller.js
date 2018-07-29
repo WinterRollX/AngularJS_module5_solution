@@ -5,17 +5,13 @@
 	"use strict";
 	angular.module('public').controller("MyInfoController",MyInfoController);
 
-	MyInfoController.$inject = ["MenuService","$window","ApiPath",'$location'];
-	function MyInfoController(MenuService,$window,ApiPath,$location) {
+	MyInfoController.$inject = ["MenuService","ApiPath",'$location'];
+	function MyInfoController(MenuService,ApiPath,$location) {
 		var myInfoCtrl = this;
 		myInfoCtrl.basePath = ApiPath;
 		if(!MenuService.isLogin()){
 
-			var landingUrl = $window.location.host + "/index.html#/loginNeeded";
-
-			console.log(landingUrl);
-			alert (landingUrl);
-			$window.location.href = '/index.html#/loginNeeded';
+			$location.url("/loginNeeded") ;
 
 		}else
 		{
