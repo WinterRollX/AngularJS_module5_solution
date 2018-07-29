@@ -10,7 +10,11 @@
 		var myInfoCtrl = this;
 		myInfoCtrl.basePath = ApiPath;
 		if(!MenuService.isLogin()){
-			console.log($location.$$absUrl);
+
+			var landingUrl = $window.location.host + "/index.html#/loginNeeded";
+
+			console.log(landingUrl);
+			alert (landingUrl);
 			$window.location.href = '/index.html#/loginNeeded';
 
 		}else
