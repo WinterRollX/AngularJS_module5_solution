@@ -5,20 +5,24 @@
 	"use strict";
 	angular.module('public').controller("MyInfoController",MyInfoController);
 
-	MyInfoController.$inject = ["MenuService","ApiPath",'$location'];
-	function MyInfoController(MenuService,ApiPath,$location) {
+	MyInfoController.$inject = ["MenuService","ApiPath"];
+	function MyInfoController(MenuService,ApiPath) {
 		var myInfoCtrl = this;
+		myInfoCtrl.isLoaded = MenuService.isLogin();
+		console.log(myInfoCtrl.isLoaded);
 		myInfoCtrl.basePath = ApiPath;
-		if(!MenuService.isLogin()){
+		
+		angular.element(document).ready(function () {
+			if(MenuService.isLogin()){
+				myInfoCtrl.personalInfo = MenuService.getPersonalInfo();
 
-			$location.url("/loginNeeded") ;
-
-		}else
-		{
-			myInfoCtrl.personalInfo = MenuService.getPersonalInfo();
-			
+			// well, this method is so bug prone.
+			//$location.url("/loginNeeded") ; 
 
 		}
+		
+		});
+		
 	}
 
 
